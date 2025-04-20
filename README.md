@@ -103,6 +103,36 @@ task-master next
 task-master generate
 ```
 
+### Option 3: Using Docker
+
+You can run Task Master directly using Docker without installing it locally. This is especially useful if you want to isolate the environment.
+
+#### Building the Docker Image
+
+1. Clone the repository:
+```bash
+git clone https://github.com/eyaltoledano/claude-task-master.git
+cd claude-task-master
+```
+
+2. Build the Docker image:
+```bash
+docker build -t mcp-server .
+```
+
+#### Prerequisites
+- Ensure you have a valid `.env` file in your project directory with the required API keys and configuration.
+
+#### Running Task Master with Docker
+
+```bash
+docker run -it --rm \
+  --env-file .env \
+  -v /path/to/your/project:/project \
+  -w /project \
+  mcp-server
+```
+
 ## Documentation
 
 For more detailed information, check out the documentation in the `docs` directory:
